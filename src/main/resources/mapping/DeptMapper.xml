@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qjnu.dao.DeptDao">
+	<select id="findall" resultType="com.qjnu.pojo.Dept"
+		parameterType="map">
+		select * from dept 
+	</select>
+	<select id="findbyid" resultType="com.qjnu.pojo.Dept"
+		parameterType="map">
+		select * from dept where did=#{did}
+	</select>
+	<insert id="insert" parameterType="com.qjnu.pojo.Dept">
+		insert into dept (dname,dtime,dstatus,describes) values(
+		#{dname} ,sysdate(),1,#{describes})
+	</insert>
+	<delete id="del" parameterType="com.qjnu.pojo.Dept">
+		delete from dept where did = #{did}
+	</delete>
+	<update id="upd" parameterType="com.qjnu.pojo.Dept">
+		update dept set
+		dname=#{dname},describes=#{describes}
+		where did = #{did}
+	</update>
+	
+</mapper>
